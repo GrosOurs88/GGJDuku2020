@@ -108,10 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9afef87a92d700f4db7b95e69bb77d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   speed: 10
-=======
-  speed: 0
 --- !u!1 &2016084937449439191
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +212,6 @@ MonoBehaviour:
   maximumX: 9999
   minimumY: -40
   maximumY: 40
->>>>>>> feature/baseSetup
 --- !u!1 &2016084938476568746
 GameObject:
   m_ObjectHideFlags: 0
