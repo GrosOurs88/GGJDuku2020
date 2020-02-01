@@ -19,7 +19,7 @@ public class EnergyTransmitterModule : Module
 
     protected override void UpdateFullLife()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     protected override void UpdateDamaged()

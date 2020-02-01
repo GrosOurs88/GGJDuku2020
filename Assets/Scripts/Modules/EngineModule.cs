@@ -4,32 +4,24 @@ using UnityEngine;
 
 public class EngineModule : Module
 {
+    public float speedRatio100 = 1;
+    public float speedRatio50 = 0.5f;
+    public float speedratio25 = 0;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
 
     protected override void UpdateFullLife()
     {
-        throw new System.NotImplementedException();
+        shipManager.MoveShip(gameManager.shipSpeed * speedRatio100);
     }
 
     protected override void UpdateDamaged()
     {
-        throw new System.NotImplementedException();
+        shipManager.MoveShip(gameManager.shipSpeed * speedRatio50);
     }
 
     protected override void UpdateDead()
     {
-        throw new System.NotImplementedException();
+        shipManager.MoveShip(gameManager.shipSpeed * speedratio25);
     }
 }

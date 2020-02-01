@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2003857126300013959
+--- !u!1 &6970265768141580928
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2003857126300013944}
-  - component: {fileID: 4150860550553188260}
+  - component: {fileID: 6970265768141580991}
+  - component: {fileID: 6970265768141580990}
   m_Layer: 0
-  m_Name: ShipManager
+  m_Name: Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2003857126300013944
+--- !u!4 &6970265768141580991
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003857126300013959}
+  m_GameObject: {fileID: 6970265768141580928}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,22 +31,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4150860550553188260
+--- !u!114 &6970265768141580990
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003857126300013959}
+  m_GameObject: {fileID: 6970265768141580928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 783f143556d9d634aa7cf3d9bc866f0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 392c6d6aa18e7d8478f39d2d645b4a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 0}
-  hullPoints: 100
-  oxygenAmount: 100
-  moduleList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  damageAmount: 0
+  requireEnergy: 0
+  consumesEnergy: 0
+  canBeDamaged: 1
+  oxygenLoss50: 0.3
+  oxygenLoss25: 1

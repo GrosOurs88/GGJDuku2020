@@ -8,7 +8,8 @@ public class ShipManager : MonoBehaviour
     public static ShipManager instance;
 
     public GameManager gameManager => GameManager.instance;
-    
+
+    public GameObject ship;
     
     public float hullPoints = 100;
 
@@ -24,6 +25,7 @@ public class ShipManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        InitModules();
     }
 
 
@@ -50,6 +52,20 @@ public class ShipManager : MonoBehaviour
             {
                 hullPoints -= module.damageAmount * t;
             }
+        }
+    }
+
+    public void MoveShip(float amount)
+    {
+        ship.transform.position += new Vector3(0f, 0f, amount * Time.deltaTime);
+    }
+    
+    
+    private void InitModules()
+    {
+        foreach (var module in moduleList)
+        {
+            module.LifePoints = 100; 
         }
     }
     

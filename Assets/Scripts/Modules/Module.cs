@@ -5,8 +5,8 @@ using UnityEngine;
 
 public abstract class Module : MonoBehaviour
 {
-    private ShipManager shipManager => ShipManager.instance;
-
+    protected ShipManager shipManager => ShipManager.instance;
+    protected GameManager gameManager => GameManager.instance;
     
 
     public HealthEnum currentHealth = new HealthEnum(HealthEnum.HealthState.FULL);
@@ -20,7 +20,7 @@ public abstract class Module : MonoBehaviour
         get => lifePoints;
         set
         {
-            lifePoints -= value;
+            lifePoints = value;
             if (lifePoints <= 0)
             {
                 lifePoints = 0;

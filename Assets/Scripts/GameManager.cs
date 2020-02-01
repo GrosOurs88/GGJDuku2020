@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     
     public float oxygenLossSpeed = 1;
+    public float shipSpeed = 10;
 
     private void Awake()
     {
