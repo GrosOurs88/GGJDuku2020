@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6611185889561017757}
-  - component: {fileID: 3220411309684933130}
+  - component: {fileID: -7916131193351182442}
   m_Layer: 0
-  m_Name: Engine
+  m_Name: Energy Transmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3220411309684933130
+--- !u!114 &-7916131193351182442
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,11 +40,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3405288836979732881}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceef5365ad378844ca80dec65f60dfef, type: 3}
+  m_Script: {fileID: 11500000, guid: da471b97ba4503345ad81fba32048c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lifePoints: 100
   currentAilment: 0
-  requireEnergy: 1
-  consumesEnergy: 1
+  requireEnergy: 0
+  consumesEnergy: 0
   canBeDamaged: 1

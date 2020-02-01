@@ -2,22 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EngineModule : Module
+public class OxygenModule : Module
 {
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
+    public float oxygenRefill100;
+    public float oxygenRefill50;
+    public float oxygenRefill0;
     protected override void UpdateFullLife()
     {
         throw new System.NotImplementedException();

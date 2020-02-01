@@ -15,4 +15,20 @@ public class EnergyTransmitterModule : Module
     {
         
     }
+
+
+    protected override void UpdateFullLife()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    protected override void UpdateDamaged()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    protected override void UpdateDead()
+    {
+        throw new System.NotImplementedException();
+    }
 }
