@@ -1815,6 +1815,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1600973966849355821, guid: eda125c77facb0942928525e147fa59d,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0.12
+      objectReference: {fileID: 0}
     - target: {fileID: 1600973967430882820, guid: eda125c77facb0942928525e147fa59d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2686,6 +2691,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 4623301099201222633, guid: cdf8666a4179fea40a714af459b2ce65,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 3.44
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdf8666a4179fea40a714af459b2ce65, type: 3}
