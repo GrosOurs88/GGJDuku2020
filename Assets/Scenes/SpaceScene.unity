@@ -879,5 +879,20 @@ PrefabInstance:
       propertyPath: m_ImportantGI
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5376568706413384144, guid: 705897f229c72784986cda489941ef35,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376568706413384144, guid: 705897f229c72784986cda489941ef35,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0238
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376568706413384159, guid: 705897f229c72784986cda489941ef35,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 7.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 705897f229c72784986cda489941ef35, type: 3}
