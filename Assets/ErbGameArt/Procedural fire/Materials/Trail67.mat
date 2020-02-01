@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Trail67
   m_Shader: {fileID: 4800000, guid: 1d4a9c916d62a324e90c32798caf3f13, type: 3}
   m_ShaderKeywords: 
@@ -40,7 +41,7 @@ Material:
     - _Emission: 5
     - _Frequency: 10
     - _Opacity: 1
-    - _StartFrequency: 0
+    - _StartFrequency: 3.1
     - _Useblack: 0
     - _Usedepth: 0
     - __dirty: 1
