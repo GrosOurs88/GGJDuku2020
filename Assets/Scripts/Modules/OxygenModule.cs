@@ -12,16 +12,16 @@ public class OxygenModule : Module
     
     protected override void UpdateFullLife()
     {
-        shipManager.oxygenAmount += oxygenRefill100 * Time.deltaTime;
+        shipManager.OxygenAmount += oxygenRefill100 * Time.deltaTime;
     }
 
     protected override void UpdateDamaged()
     {
-        shipManager.oxygenAmount += oxygenRefill50 * Time.deltaTime;
+        shipManager.OxygenAmount += oxygenRefill50 * Time.deltaTime;
     }
 
     protected override void UpdateDead()
     {
-        shipManager.oxygenAmount += oxygenRefill25 * Time.deltaTime;
+        shipManager.OxygenAmount += oxygenRefill25 * Time.deltaTime;
     }
 }

@@ -13,8 +13,8 @@ public abstract class Module : MonoBehaviour
     public AilmentsEnum currentAilment = new AilmentsEnum(AilmentsEnum.Ailments.None);
     
     
+    // GAMEPLAY VARIABLES
     private float lifePoints;
-
     public float LifePoints
     {
         get => lifePoints;
@@ -42,18 +42,24 @@ public abstract class Module : MonoBehaviour
             {
                 currentHealth.Value = HealthEnum.HealthState.DEAD;
             }
-
+            
+            
         }
     }
+    
+    
+    public bool isPowered = false;
 
+    
+    // PARAMS
     public float damageAmount = 1;
     
     public bool requireEnergy = false;
 
     public bool consumesEnergy = false;
+    public float energyCost = 2;
 
     public bool canBeDamaged = true;
-
 
 
     // UNITY FUNCTIONS
@@ -77,6 +83,17 @@ public abstract class Module : MonoBehaviour
 
     private void UpdateModule()
     {
+        // DAMAGE SHIP
+        if (LifePoints <= 0) 
+            shipManager.HullPoints -= damageAmount * Time.deltaTime;
+
+        
+        // NEED POWER ?
+        if (!isPowered && requireEnergy) // Non branché
+            return;
+        
+        
+        // MODULE UPDATE
         if (LifePoints >= 50)
         {
             UpdateFullLife();
@@ -89,6 +106,21 @@ public abstract class Module : MonoBehaviour
         {
             UpdateDead();
         }
+
+        // ENERGY CONSUMPTION
+        if (consumesEnergy)
+            shipManager.EnergyAmount -= energyCost * Time.deltaTime;
+        
+    }
+
+    public virtual void PowerOn()
+    {
+        isPowered = true;
+    }
+    
+    public virtual  void PowerOff()
+    {
+        isPowered = false;
     }
     
 
