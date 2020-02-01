@@ -10,21 +10,81 @@ public class ShipManager : MonoBehaviour
     public GameManager gameManager => GameManager.instance;
 
     public GameObject ship;
-    
-    public float hullPoints = 100;
 
-    public float oxygenAmount = 100;
     
+    private float hullPoints;
+    public float HullPoints
+    {
+        get => hullPoints;
+        set
+        {
+            hullPoints = value;
+            if (hullPoints > 100)
+            {
+                hullPoints = 100;
+            }
+            
+            else if (hullPoints < 0)
+            {
+                hullPoints = 0;
+            }
+        }
+    }
+
+
+    private float oxygenAmount;
+    public float OxygenAmount
+    {
+        get => oxygenAmount;
+        set
+        {
+            oxygenAmount = value;
+            if (oxygenAmount > 100)
+            {
+                oxygenAmount = 100;
+            }
+            
+            else if (oxygenAmount < 0)
+            {
+                oxygenAmount = 0;
+            }
+        }
+    }
+
+    
+    private float energyAmount;
+    public float EnergyAmount
+    {
+        get => energyAmount;
+        set
+        {
+            energyAmount = value;
+            if (energyAmount > 100)
+            {
+                energyAmount = 100;
+            }
+            
+            else if (energyAmount < 0)
+            {
+                energyAmount = 0;
+            }
+        }
+    }
+    
+    
+
     public Module[] moduleList;
 
 
     public delegate void ShipUpdateEvents();
-
     public static event ShipUpdateEvents ModulesUpdate; 
+    
 
+    // UNITY FUNCTIONS
     private void Awake()
     {
         instance = this;
+        InitShip();
         InitModules();
     }
 
@@ -37,9 +97,10 @@ public class ShipManager : MonoBehaviour
     }
 
 
+    // GAMEPLAY FUNCTIONS
     private void LooseOxygen()
     {
-        oxygenAmount -= gameManager.oxygenLossSpeed * Time.deltaTime;
+        OxygenAmount -= gameManager.oxygenLossSpeed * Time.deltaTime;
     }
     
     private void CheckDamage()
@@ -50,7 +111,7 @@ public class ShipManager : MonoBehaviour
         {
             if (module.LifePoints <= 0)
             {
-                hullPoints -= module.damageAmount * t;
+                HullPoints -= module.damageAmount * t;
             }
         }
     }
@@ -59,7 +120,24 @@ public class ShipManager : MonoBehaviour
     {
         ship.transform.position += new Vector3(0f, 0f, amount * Time.deltaTime);
     }
+
+    private void OutOfEnergy()
+    {
+        foreach (var module in moduleList)
+        {
+            if (module.consumesEnergy)
+            {
+                module.PowerOff();
+            }
+        }
+    }
     
+    
+    // INIT
+    private void InitShip()
+    {
+        OxygenAmount = 100;
+    }
     
     private void InitModules()
     {

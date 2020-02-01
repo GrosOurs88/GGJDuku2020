@@ -14,11 +14,11 @@ public class GlassModule : Module
 
     protected override void UpdateDamaged()
     {
-        shipManager.oxygenAmount -= oxygenLoss50 * Time.deltaTime;
+        shipManager.OxygenAmount -= oxygenLoss50 * Time.deltaTime;
     }
 
     protected override void UpdateDead()
     {
-        shipManager.oxygenAmount -= oxygenLoss25 * Time.deltaTime;
+        shipManager.OxygenAmount -= oxygenLoss25 * Time.deltaTime;
     }
 }
