@@ -10,7 +10,7 @@ Material:
   m_Name: Emissive
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _EMISSION _METALLICGLOSSMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-  m_LightmapFlags: 1
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
@@ -37,7 +37,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: ea75323f20e3eaa4ea6cd5ae9763e5bd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8d89aa73e7a8ffa449bc080309db1c3c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -78,6 +78,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0, g: 0, b: 0, a: 0.5058824}
-    - _EmissionColor: {r: 5.992157, g: 4.329412, b: 4.3607845, a: 1}
+    - _Color: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 0.5058824}
+    - _EmissionColor: {r: 1.1334227, g: 1.1334227, b: 1.1334227, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
