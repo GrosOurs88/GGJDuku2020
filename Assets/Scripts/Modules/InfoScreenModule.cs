@@ -21,8 +21,10 @@ public class InfoScreenModule : Module
         //throw new System.NotImplementedException();
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+        
         currentHealth.EnterFULL += () => GlitchLevel(0);
         currentHealth.EnterDAMAGED += () => GlitchLevel(1);
         currentHealth.EnterDEAD += () => GlitchLevel(2);

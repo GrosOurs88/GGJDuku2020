@@ -179,6 +179,12 @@ public class ShipManager : MonoBehaviour
     
     public void PowerModule(Type moduleType)
     {
-        ModuleList.Find(y => y.GetType() == moduleType).PowerOn();
+        var module = ModuleList.Find(y => y.GetType() == moduleType);
+
+        if (module.isPowered)
+            module.PowerOff();
+        else
+            module.PowerOn();
+        
     }
 }

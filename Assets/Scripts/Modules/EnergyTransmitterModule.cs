@@ -51,11 +51,11 @@ public class EnergyTransmitterModule : Module
         }
     }
 
-    public void EnableModule(dynamic module)
+    public void EnableModule(int module)
     {
         if (currentHealth.Value != HealthEnum.HealthState.DEAD)
         {
-            switch ((int) module)
+            switch (module)
             {
                 case 0:
                     shipManager.PowerModule(typeof(EngineModule));

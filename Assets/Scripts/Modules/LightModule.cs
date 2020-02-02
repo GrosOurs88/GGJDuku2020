@@ -22,18 +22,40 @@ public class LightModule : Module
         //throw new System.NotImplementedException();
     }
 
-    private void Start()
+    protected override void Start()
     {
-        currentHealth.EnterFULL += () => SetLight(1);
-        currentHealth.EnterDAMAGED += () => SetLight(0.5f);
-        currentHealth.EnterDEAD += () => SetLight(0);
+        base.Start();
+        
+        currentHealth.EnterFULL += () => SetLights(1);
+        currentHealth.EnterDAMAGED += () => SetLights(0.5f);
+        currentHealth.EnterDEAD += () => SetLights(0);
     }
 
-    private void SetLight(float ratio)
+    private void SetLights(float ratio)
     {
         foreach (var ampoule in lights)
         {
             ampoule.ChangeLightValue(ratio);
+        }
+    }
+    
+    public override void PowerOn()
+    {
+        base.PowerOn();
+
+        foreach (var ampoule in lights)
+        {
+            ampoule.gameObject.SetActive(true);
+        }
+    }
+
+    public override void PowerOff()
+    {
+        base.PowerOff();
+        
+        foreach (var ampoule in lights)
+        {
+            ampoule.gameObject.SetActive(false);
         }
     }
 
