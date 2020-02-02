@@ -18,15 +18,23 @@ public class HealthEnum : StateMachine<HealthEnum.HealthState>
         DEAD
     }
     
+    
+    public event StateChangeEvent EnterFULL;
+    public event StateChangeEvent EnterDAMAGED;
+    public event StateChangeEvent EnterDEAD;
+    
     protected override void EnterState(HealthEnum.HealthState state)
     {
         switch (state)
         {
             case HealthEnum.HealthState.FULL:
+                EnterFULL?.Invoke();
                 break;
             case HealthEnum.HealthState.DAMAGED:
+                EnterDAMAGED?.Invoke();
                 break;
             case HealthEnum.HealthState.DEAD:
+                EnterDEAD?.Invoke();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);

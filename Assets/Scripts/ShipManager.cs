@@ -71,6 +71,25 @@ public class ShipManager : MonoBehaviour
         }
     }
     
+    [SerializeField] private float temperatureAmount;
+    public float TemperatureAmount
+    {
+        get => temperatureAmount;
+        set
+        {
+            temperatureAmount = value;
+            if (temperatureAmount > 100)
+            {
+                temperatureAmount = 100;
+            }
+            
+            else if (temperatureAmount < 0)
+            {
+                temperatureAmount = 0;
+            }
+        }
+    }
+    
     
 
     [SerializeField] private List<Module> ModuleList = new List<Module>();
@@ -91,7 +110,9 @@ public class ShipManager : MonoBehaviour
     private void Update()
     {
         LooseOxygen();
-
+        HeatUpdate();
+        CheckDamage();
+        
         ModulesUpdate?.Invoke(); 
     }
 
@@ -100,6 +121,11 @@ public class ShipManager : MonoBehaviour
     private void LooseOxygen()
     {
         OxygenAmount -= gameManager.oxygenLossSpeed * Time.deltaTime;
+    }
+
+    private void HeatUpdate()
+    {
+        TemperatureAmount += gameManager.temperatureGainSpeed * Time.deltaTime;
     }
     
     private void CheckDamage()
@@ -136,6 +162,8 @@ public class ShipManager : MonoBehaviour
     private void InitShip()
     {
         OxygenAmount = 100;
+        EnergyAmount = 100;
+        TemperatureAmount = 100;
     }
     
     private void InitModule(Module module)
@@ -149,4 +177,14 @@ public class ShipManager : MonoBehaviour
         InitModule(module);
     }
     
+    public void PowerModule(Type moduleType)
+    {
+        var module = ModuleList.Find(y => y.GetType() == moduleType);
+
+        if (module.isPowered)
+            module.PowerOff();
+        else
+            module.PowerOn();
+        
+    }
 }
