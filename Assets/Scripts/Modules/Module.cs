@@ -63,13 +63,13 @@ public abstract class Module : MonoBehaviour
 
 
     // UNITY FUNCTIONS
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         ShipManager.ModulesUpdate += UpdateModule;
         shipManager.RegisterModule(this);
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         ShipManager.ModulesUpdate -= UpdateModule;
     }
