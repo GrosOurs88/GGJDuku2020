@@ -15,23 +15,23 @@ public class GameManager : MonoBehaviour
     public float temperatureGainSpeed = 1;
     public float shipSpeed = 10;
 
-    private FloatParameter vignetteBase;
-    private PostProcessVolume postProcessVolume;
-
+    private float vignetteBase;
+    private Vignette vignetteLayer;
     private void Awake()
     {
         instance = this;
-        postProcessVolume = cameraControl.GetComponent<PostProcessVolume>();
-        vignetteBase = postProcessVolume.sharedProfile.GetSetting<Vignette>().intensity;
+        vignetteLayer = cameraControl.GetComponent<PostProcessVolume>().profile.GetSetting<Vignette>();
+        vignetteBase = vignetteLayer.intensity;
     }
 
     private void Update()
     {
-        FloatParameter newValue = new FloatParameter
-        {
-            value = Mathf.Lerp(1, vignetteBase, ((shipManager.OxygenAmount)*2) / 100f) // start reducing at 50% oxygen
-        };
+        vignetteLayer.intensity.value =
+            Mathf.Lerp(1f, vignetteBase, ((shipManager.OxygenAmount) * 2) / 100f); // start reducing at 50% oxygen
+    }
 
-        postProcessVolume.sharedProfile.AddSettings<Vignette>().intensity = newValue;
+    private void OnApplicationQuit()
+    {
+        vignetteLayer.intensity.value = vignetteBase;
     }
 }

@@ -46,7 +46,6 @@ MonoBehaviour:
   ship: {fileID: 0}
   hullPoints: 100
   oxygenAmount: 100
-  moduleList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  energyAmount: 0
+  temperatureAmount: 0
+  ModuleList: []

@@ -2,12 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnergyTransmitterModule : Module
 {
     public int maxEnergy100 = 3;
     public int maxEnergy50 = 1;
     public int maxEnergy25 = 0;
+
+    public EnergyButtons buttons;
     
     private List<Module> connectedModules = new List<Module>();
     
@@ -73,5 +76,18 @@ public class EnergyTransmitterModule : Module
                     throw new ArgumentOutOfRangeException(nameof(module), module, null);
             }
         }
+    }
+
+
+    [Serializable]
+    public struct EnergyButtons
+    {
+        public Button EngineButton;
+        public Button OxygenButton;
+        public Button EnergyGenButton;
+        public Button InfoScreenButton;
+        public Button LightButton;
+
+        public Image PowerAvailableImage;
     }
 }
