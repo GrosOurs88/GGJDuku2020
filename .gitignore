@@ -72,8 +72,6 @@ fmod.log
 fmod_editor.log
 
 #FMOD AND SOUNDS
-*.wav
-*.wav.meta
 *.psd
 *.db
 *.cache
