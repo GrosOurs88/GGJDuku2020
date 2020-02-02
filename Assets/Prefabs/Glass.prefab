@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7918401958328249235}
   - component: {fileID: 7672057044337921804}
   m_Layer: 0
-  m_Name: Glass (1)
+  m_Name: GlassWithLightDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 5356138843485024782}
   - component: {fileID: 6944116848767984044}
   m_Layer: 0
-  m_Name: Glass (2)
+  m_Name: GlassWithHeavyDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 5832462341357120851}
   - component: {fileID: 3079274789373583819}
   m_Layer: 0
-  m_Name: Glass
+  m_Name: GlassWithoutDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
