@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6743336773934942257
 Transform:
   m_ObjectHideFlags: 0
@@ -60,7 +60,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5107148618791980329
 Transform:
   m_ObjectHideFlags: 0
@@ -133,17 +133,19 @@ MonoBehaviour:
   damageAmount: 1
   requireEnergy: 1
   consumesEnergy: 1
-  energyCost: 2
+  energyCost: 4
   canBeDamaged: 1
   chanceForAilment: 0.2
   canUseFire: 1
-  canUseElec: 0
-  fire: {fileID: 0}
-  elec: {fileID: 0}
+  canUseElec: 1
+  fire: {fileID: 2694925787365382880}
+  elec: {fileID: 650201593367553465}
   speedRatio100: 1
   speedRatio50: 0.5
   speedratio25: 0
-  engines: []
+  engines:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &2125664008696717599
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -142,8 +142,11 @@ public abstract class Module : MonoBehaviour
 
         
         // NEED POWER ?
-        if (!isPowered && requireEnergy) // Non branché
+        if (!isPowered && requireEnergy)
+        {
+            UpdateUnpowered();
             return;
+        }// Non branché
         
         
         // MODULE UPDATE
@@ -180,6 +183,10 @@ public abstract class Module : MonoBehaviour
     protected abstract void UpdateFullLife();
     protected abstract void UpdateDamaged();
     protected abstract void UpdateDead();
-    
+
+    protected virtual void UpdateUnpowered()
+    {
+        
+    }
 
 }

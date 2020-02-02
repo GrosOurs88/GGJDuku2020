@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3034520026818282344}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -46,12 +46,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ce99f875e96fe4c88e530342b6b15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHealth:
+    currentValue: 0
+  currentAilment:
+    currentValue: 0
+  lifePoints: 0
   isPowered: 0
   damageAmount: 1
   requireEnergy: 1
   consumesEnergy: 1
   energyCost: 2
   canBeDamaged: 1
+  chanceForAilment: 0.2
+  canUseFire: 1
+  canUseElec: 1
+  fire: {fileID: 6148561339162138123}
+  elec: {fileID: 4378008284084093707}
   oxygenRefill100: 1
   oxygenRefill50: 0.5
   oxygenRefill25: 0
@@ -70,7 +80,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7885922939672600813
 Transform:
   m_ObjectHideFlags: 0
@@ -102,7 +112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1785727446629203516
 Transform:
   m_ObjectHideFlags: 0
@@ -110,8 +120,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6148561339162138123}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0.68186873, z: -0, w: 0.7314746}
+  m_LocalPosition: {x: -0.043, y: -0.021000028, z: 0.026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2079261262462247404}
@@ -119,7 +129,7 @@ Transform:
   - {fileID: 2377794757971015423}
   m_Father: {fileID: 3034520026818282347}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -85.98, z: 0}
 --- !u!65 &7472453514539793411
 BoxCollider:
   m_ObjectHideFlags: 0
