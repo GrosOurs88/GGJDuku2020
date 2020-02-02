@@ -3100,7 +3100,7 @@ PrefabInstance:
     - target: {fileID: 5675607769390628962, guid: ae93f60f941623a4ca739cb65dacf628,
         type: 3}
       propertyPath: m_Name
-      value: ScreensModulesUI
+      value: frame
       objectReference: {fileID: 0}
     - target: {fileID: 5675607769390628962, guid: ae93f60f941623a4ca739cb65dacf628,
         type: 3}
@@ -4299,7 +4299,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: ef79fb8e62254eb4080e45dada87dfb8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.442
+      value: 2.321
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ef79fb8e62254eb4080e45dada87dfb8,
         type: 3}
