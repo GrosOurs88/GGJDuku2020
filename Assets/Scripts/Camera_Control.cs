@@ -13,14 +13,15 @@ public class Camera_Control : MonoBehaviour
 	public float maximumY = 60F;
 	float rotationY = 0F;
     float rotationX = 0F;
-
+    ShipManager shipManager => ShipManager.instance;
+    
     void Update ()
 	{
         //enum MouseXAndY
         if (axes == RotationAxes.MouseXAndY)
         {
-            rotationX += Input.GetAxis("Mouse X") * sensitivityX;
-            rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+            rotationX += Input.GetAxis("Mouse X") * sensitivityX * (shipManager.TemperatureAmount/100);
+            rotationY += Input.GetAxis("Mouse Y") * sensitivityY * (shipManager.TemperatureAmount/100);
 
             rotationX = Mathf.Clamp(rotationX, minimumX, maximumX);
             rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);

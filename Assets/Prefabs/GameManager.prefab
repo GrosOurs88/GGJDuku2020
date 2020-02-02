@@ -43,4 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52d83ab585ffa3442b80a21a0f273701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraControl: {fileID: 0}
   oxygenLossSpeed: 1
+  shipSpeed: 10
