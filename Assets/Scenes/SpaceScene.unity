@@ -2121,18 +2121,6 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 9032233837521032790}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1293394229 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4924243882279089883, guid: 254228338c8b8cf42b10e992391a6c04,
-    type: 3}
-  m_PrefabInstance: {fileID: 8172833475580535043}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1370358175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3535,7 +3523,7 @@ PrefabInstance:
     - target: {fileID: 118477884, guid: c57b21d804dfa4a44b7a20f78e079f87, type: 3}
       propertyPath: shipEngine
       value: 
-      objectReference: {fileID: 1293394229}
+      objectReference: {fileID: 0}
     - target: {fileID: 118477884, guid: c57b21d804dfa4a44b7a20f78e079f87, type: 3}
       propertyPath: shipLights
       value: 
@@ -3844,6 +3832,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390047164999527651, guid: f8cb8e2b19ac9cf429951304c31c7c0e,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390047164999527651, guid: f8cb8e2b19ac9cf429951304c31c7c0e,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8cb8e2b19ac9cf429951304c31c7c0e, type: 3}
@@ -4194,6 +4192,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4112988711029496684, guid: 254228338c8b8cf42b10e992391a6c04,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4510433158281435422, guid: 254228338c8b8cf42b10e992391a6c04,
         type: 3}
       propertyPath: m_Mesh
@@ -4220,6 +4223,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6741135547929504291, guid: 254228338c8b8cf42b10e992391a6c04,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6975524214536501588, guid: 254228338c8b8cf42b10e992391a6c04,
         type: 3}
       propertyPath: m_Mesh
       value: 
