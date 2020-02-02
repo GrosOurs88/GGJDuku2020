@@ -41,19 +41,7 @@ public class SoundManager : MonoBehaviour
     private void Start()
     {
         engineSource.clip = engineOn;
-        engineSource.Play();
-
         fanSource.clip = fanOn;
-        fanSource.Play();
-    }
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-         
-        }
-        
     }
 
 
