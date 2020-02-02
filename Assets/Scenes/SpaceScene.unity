@@ -4585,6 +4585,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8911545949446981584, guid: cdf8666a4179fea40a714af459b2ce65,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9186896962401043496, guid: cdf8666a4179fea40a714af459b2ce65,
         type: 3}
       propertyPath: weight
