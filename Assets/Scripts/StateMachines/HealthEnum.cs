@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class HealthEnum : StateMachine<HealthEnum.HealthState>
 {
     public HealthEnum(HealthState defaultValue) : base(defaultValue)
