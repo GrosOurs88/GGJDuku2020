@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.046181694, g: 0.018005738, b: 0.026375417, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2031,6 +2031,21 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 893355003536904208, guid: ae93f60f941623a4ca739cb65dacf628,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268033524161664860, guid: ae93f60f941623a4ca739cb65dacf628,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622111810081473756, guid: ae93f60f941623a4ca739cb65dacf628,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1989410351898723527, guid: ae93f60f941623a4ca739cb65dacf628,
         type: 3}
       propertyPath: m_Mesh
@@ -2047,6 +2062,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2199875054533823548, guid: ae93f60f941623a4ca739cb65dacf628,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846826902730631502, guid: ae93f60f941623a4ca739cb65dacf628,
         type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2141,12 +2161,22 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5810641228936714018, guid: ae93f60f941623a4ca739cb65dacf628,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6115642387408395167, guid: ae93f60f941623a4ca739cb65dacf628,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6797839918855014061, guid: ae93f60f941623a4ca739cb65dacf628,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994946425793891313, guid: ae93f60f941623a4ca739cb65dacf628,
         type: 3}
       propertyPath: m_Mesh
       value: 
