@@ -64,7 +64,7 @@ public class EnergyTransmitterModule : Module
                     shipManager.PowerModule(typeof(EnergyGeneratorModule));
                     break;
                 case 3:
-                    shipManager.PowerModule(typeof(EngineModule)); //TODO: info screens
+                    shipManager.PowerModule(typeof(InfoScreenModule));
                     break;
                 case 4:
                     shipManager.PowerModule(typeof(LightModule));
