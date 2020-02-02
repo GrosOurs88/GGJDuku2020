@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ModuleUIScript : MonoBehaviour
 {
     private string modulePourcentText;
-
-    private TextMesh modulePourcentTextMesh;
+    private TextMeshPro modulePourcentTextMesh;
 
 
     private void Start()
     {
-        modulePourcentTextMesh = GetComponent<TextMesh>();
+        modulePourcentTextMesh = GetComponent<TextMeshPro>();
         modulePourcentText = modulePourcentTextMesh.text; 
     }
 
@@ -20,7 +20,6 @@ public class ModuleUIScript : MonoBehaviour
     {
         UpdateUI();
     }
-
 
     public void UpdateUI()
     {
