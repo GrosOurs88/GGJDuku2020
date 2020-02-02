@@ -12,7 +12,7 @@ public class ShipManager : MonoBehaviour
     public GameObject ship;
 
     
-    private float hullPoints;
+    [SerializeField] private float hullPoints;
     public float HullPoints
     {
         get => hullPoints;
@@ -32,7 +32,7 @@ public class ShipManager : MonoBehaviour
     }
 
 
-    private float oxygenAmount;
+    [SerializeField] private float oxygenAmount;
     public float OxygenAmount
     {
         get => oxygenAmount;
@@ -52,7 +52,7 @@ public class ShipManager : MonoBehaviour
     }
 
     
-    private float energyAmount;
+    [SerializeField] private float energyAmount;
     public float EnergyAmount
     {
         get => energyAmount;
@@ -73,7 +73,7 @@ public class ShipManager : MonoBehaviour
     
     
 
-    public Module[] moduleList;
+    [SerializeField] private List<Module> ModuleList = new List<Module>();
 
 
     public delegate void ShipUpdateEvents();
@@ -85,7 +85,6 @@ public class ShipManager : MonoBehaviour
     {
         instance = this;
         InitShip();
-        InitModules();
     }
 
 
@@ -107,7 +106,7 @@ public class ShipManager : MonoBehaviour
     {
         float t = Time.deltaTime;
         
-        foreach (Module module in moduleList)
+        foreach (Module module in ModuleList)
         {
             if (module.LifePoints <= 0)
             {
@@ -123,7 +122,7 @@ public class ShipManager : MonoBehaviour
 
     private void OutOfEnergy()
     {
-        foreach (var module in moduleList)
+        foreach (var module in ModuleList)
         {
             if (module.consumesEnergy)
             {
@@ -139,12 +138,15 @@ public class ShipManager : MonoBehaviour
         OxygenAmount = 100;
     }
     
-    private void InitModules()
+    private void InitModule(Module module)
     {
-        foreach (var module in moduleList)
-        {
-            module.LifePoints = 100; 
-        }
+        module.LifePoints = 100;
+    }
+
+    public void RegisterModule(Module module)
+    {
+        ModuleList.Add(module);
+        InitModule(module);
     }
     
 }

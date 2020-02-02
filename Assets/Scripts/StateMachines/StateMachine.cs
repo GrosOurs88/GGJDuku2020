@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public abstract class StateMachine<T> where T : struct, IConvertible
 {
-    protected T currentValue;
+    [SerializeField] protected T currentValue;
 
     public T Value
     {

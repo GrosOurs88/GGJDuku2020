@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class AilmentsEnum : StateMachine<AilmentsEnum.Ailments>
 {
     public AilmentsEnum(Ailments defaultValue) : base(defaultValue)

@@ -14,7 +14,7 @@ public abstract class Module : MonoBehaviour
     
     
     // GAMEPLAY VARIABLES
-    private float lifePoints;
+    [SerializeField] private float lifePoints;
     public float LifePoints
     {
         get => lifePoints;
@@ -66,6 +66,7 @@ public abstract class Module : MonoBehaviour
     private void OnEnable()
     {
         ShipManager.ModulesUpdate += UpdateModule;
+        shipManager.RegisterModule(this);
     }
 
     private void OnDisable()
