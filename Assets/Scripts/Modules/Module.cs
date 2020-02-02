@@ -92,7 +92,8 @@ public abstract class Module : MonoBehaviour
 
     protected virtual void Start()
     {
-        PowerOff();
+        if (!isPowered)
+            PowerOff();
     }
 
 

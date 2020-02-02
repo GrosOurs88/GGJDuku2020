@@ -104,7 +104,7 @@ Transform:
   m_GameObject: {fileID: 3405288836979732881}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2452033, y: 1.4002311, z: 1.5992146}
   m_Children:
   - {fileID: 6342569013543619077}
   - {fileID: 5107148618791980329}
@@ -124,15 +124,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceef5365ad378844ca80dec65f60dfef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHealth:
+    currentValue: 0
+  currentAilment:
+    currentValue: 0
+  lifePoints: 0
   isPowered: 0
   damageAmount: 1
   requireEnergy: 1
   consumesEnergy: 1
   energyCost: 2
   canBeDamaged: 1
+  chanceForAilment: 0.2
+  canUseFire: 1
+  canUseElec: 0
+  fire: {fileID: 0}
+  elec: {fileID: 0}
   speedRatio100: 1
   speedRatio50: 0.5
   speedratio25: 0
+  engines: []
 --- !u!1001 &2125664008696717599
 PrefabInstance:
   m_ObjectHideFlags: 0

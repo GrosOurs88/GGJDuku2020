@@ -393,6 +393,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Seat
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 980d05bbad4a7414cbbc01c160ecd626,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 980d05bbad4a7414cbbc01c160ecd626, type: 3}
 --- !u!4 &4555856757419190388 stripped

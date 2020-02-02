@@ -708,6 +708,11 @@ MonoBehaviour:
   consumesEnergy: 0
   energyCost: 0
   canBeDamaged: 1
+  chanceForAilment: 0.2
+  canUseFire: 1
+  canUseElec: 0
+  fire: {fileID: 0}
+  elec: {fileID: 0}
   maxEnergy100: 3
   maxEnergy50: 1
   maxEnergy25: 0
@@ -2028,7 +2033,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e2f7b635fb2ca4d4c972d7747b6c2898, type: 2}
+      objectReference: {fileID: 2100000, guid: 9760a99129fc00a4fab96038ca921916, type: 2}
     - target: {fileID: 1784623457129834215, guid: e1838beb4a30e6b45aa3415cf78ab283,
         type: 3}
       propertyPath: m_Materials.Array.data[1]

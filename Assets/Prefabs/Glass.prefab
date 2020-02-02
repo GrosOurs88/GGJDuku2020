@@ -308,7 +308,7 @@ Transform:
   m_GameObject: {fileID: 8577834444699443095}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 1, z: 0.15}
+  m_LocalScale: {x: 0.14251956, y: 0.1451897, z: 0.1229991}
   m_Children:
   - {fileID: 3680827665804799530}
   - {fileID: 5550244259616267060}
@@ -339,5 +339,12 @@ MonoBehaviour:
   consumesEnergy: 0
   energyCost: 2
   canBeDamaged: 1
+  chanceForAilment: 0.2
+  canUseFire: 1
+  canUseElec: 0
+  fire: {fileID: 0}
+  elec: {fileID: 0}
   oxygenLoss50: 0.3
   oxygenLoss25: 1
+  temperatureLoss50: 0.3
+  temperatureLoss25: 1
