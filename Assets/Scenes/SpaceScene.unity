@@ -4796,6 +4796,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnergyRepartitor
       objectReference: {fileID: 0}
+    - target: {fileID: 8003097386049864979, guid: 1dd43b60c9e36194d8d0424519d6a216,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9760a99129fc00a4fab96038ca921916, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dd43b60c9e36194d8d0424519d6a216, type: 3}
 --- !u!4 &8634798239385468793 stripped
