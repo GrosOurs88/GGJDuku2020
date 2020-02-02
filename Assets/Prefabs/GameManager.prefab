@@ -45,4 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraControl: {fileID: 0}
   oxygenLossSpeed: 1
+  temperatureGainSpeed: 1
   shipSpeed: 10

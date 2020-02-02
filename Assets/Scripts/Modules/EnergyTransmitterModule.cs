@@ -19,10 +19,10 @@ public class EnergyTransmitterModule : Module
     {
         if (connectedModules.Count > maxEnergy100)
         {
-            for (int i = connectedModules.Count; i > maxEnergy100; i--)
+            while (connectedModules.Count > maxEnergy100)
             {
-                connectedModules[i-1].PowerOff();
-                connectedModules.RemoveAt(i-1);
+                connectedModules[0].PowerOff();
+                connectedModules.RemoveAt(0);
             }
         }
     }
@@ -31,10 +31,10 @@ public class EnergyTransmitterModule : Module
     {
         if (connectedModules.Count > maxEnergy50)
         {
-            for (int i = connectedModules.Count; i > maxEnergy50; i--)
+            while (connectedModules.Count > maxEnergy50)
             {
-                connectedModules[i-1].PowerOff();
-                connectedModules.RemoveAt(i-1);
+                connectedModules[0].PowerOff();
+                connectedModules.RemoveAt(0);
             }
         }
     }
@@ -43,10 +43,10 @@ public class EnergyTransmitterModule : Module
     {
         if (connectedModules.Count > maxEnergy25)
         {
-            for (int i = connectedModules.Count; i > maxEnergy25; i--)
+            while (connectedModules.Count > maxEnergy25)
             {
-                connectedModules[i-1].PowerOff();
-                connectedModules.RemoveAt(i-1);
+                connectedModules[0].PowerOff();
+                connectedModules.RemoveAt(0);
             }
         }
     }

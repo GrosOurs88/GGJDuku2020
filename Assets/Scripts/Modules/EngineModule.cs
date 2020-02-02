@@ -12,21 +12,29 @@ public class EngineModule : Module
 
     protected override void UpdateFullLife()
     {
-        shipManager.MoveShip(gameManager.shipSpeed * speedRatio100);
+        if (isPowered)
+            shipManager.MoveShip(gameManager.shipSpeed * speedRatio100);
     }
 
     protected override void UpdateDamaged()
     {
-        shipManager.MoveShip(gameManager.shipSpeed * speedRatio50);
+        if (isPowered)
+            shipManager.MoveShip(gameManager.shipSpeed * speedRatio50);
     }
 
     protected override void UpdateDead()
     {
-        shipManager.MoveShip(gameManager.shipSpeed * speedratio25);
+        if (isPowered)
+            shipManager.MoveShip(gameManager.shipSpeed * speedratio25);
     }
 
-    
-    
+    protected override void UpdateUnpowered()
+    {
+        base.UpdateUnpowered();
+        shipManager.MoveShip(0);
+    }
+
+
     public override void PowerOn()
     {
         base.PowerOn();

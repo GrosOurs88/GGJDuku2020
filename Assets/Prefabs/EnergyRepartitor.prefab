@@ -427,7 +427,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7138633584522575893}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 186472631791877397}
+        m_MethodName: EnableModule
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3258846654274368513
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,7 +503,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &3419822238162985539
 MonoBehaviour:
@@ -650,7 +661,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2007963358896615710}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 186472631791877397}
+        m_MethodName: EnableModule
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5721140325421984544
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,7 +731,7 @@ MonoBehaviour:
   energyCost: 0
   canBeDamaged: 1
   chanceForAilment: 0.2
-  canUseFire: 1
+  canUseFire: 0
   canUseElec: 0
   fire: {fileID: 0}
   elec: {fileID: 0}
@@ -717,11 +739,11 @@ MonoBehaviour:
   maxEnergy50: 1
   maxEnergy25: 0
   buttons:
-    EngineButton: {fileID: 0}
-    OxygenButton: {fileID: 0}
-    EnergyGenButton: {fileID: 0}
-    InfoScreenButton: {fileID: 0}
-    LightButton: {fileID: 0}
+    EngineButton: {fileID: 6677910465946131188}
+    OxygenButton: {fileID: 5346452403305048079}
+    EnergyGenButton: {fileID: 5481561997546212971}
+    InfoScreenButton: {fileID: 2418894293228185806}
+    LightButton: {fileID: 431908571698914697}
     PowerAvailableImage: {fileID: 0}
 --- !u!1 &5781540571657969361
 GameObject:
@@ -840,7 +862,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3911148065171310722}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 186472631791877397}
+        m_MethodName: EnableModule
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5790131522494753543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,7 +1611,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6399812516009420835}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 186472631791877397}
+        m_MethodName: EnableModule
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8227985484326053432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,7 +1740,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1130487494766751822}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 186472631791877397}
+        m_MethodName: EnableModule
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8862792281358661727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,6 +1914,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5505950693022888037}
     m_Modifications:
+    - target: {fileID: 3680827665804799530, guid: 5392dce5e8d0ba94dac5f08360289433,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.39
+      objectReference: {fileID: 0}
     - target: {fileID: 8577834444699443090, guid: 5392dce5e8d0ba94dac5f08360289433,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

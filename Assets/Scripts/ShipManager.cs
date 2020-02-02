@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class ShipManager : MonoBehaviour
@@ -10,6 +11,9 @@ public class ShipManager : MonoBehaviour
     public GameManager gameManager => GameManager.instance;
 
     public GameObject ship;
+
+    public DOTweenPath path;
+    private Tween tween;
 
     
     [SerializeField] private float hullPoints;
@@ -58,6 +62,11 @@ public class ShipManager : MonoBehaviour
         get => energyAmount;
         set
         {
+            if (energyAmount > 0 && value <= 0)
+            {
+                OutOfEnergy();
+            }
+            
             energyAmount = value;
             if (energyAmount > 100)
             {
@@ -106,6 +115,12 @@ public class ShipManager : MonoBehaviour
         InitShip();
     }
 
+    private void Start()
+    {
+        tween = path.GetTween();
+        tween.timeScale = 0;
+    }
+
 
     private void Update()
     {
@@ -143,7 +158,8 @@ public class ShipManager : MonoBehaviour
 
     public void MoveShip(float amount)
     {
-        ship.transform.position += new Vector3(0f, 0f, amount * Time.deltaTime);
+        //ship.transform.position += new Vector3(0f, 0f, amount * Time.deltaTime);
+        tween.timeScale = amount;
     }
 
     private void OutOfEnergy()
@@ -179,12 +195,22 @@ public class ShipManager : MonoBehaviour
     
     public void PowerModule(Type moduleType)
     {
-        var module = ModuleList.Find(y => y.GetType() == moduleType);
-
+        var module = GetModule(moduleType);
+        
         if (module.isPowered)
             module.PowerOff();
         else
             module.PowerOn();
         
+    }
+
+    public Module GetModule(Type moduleType)
+    {
+        return ModuleList.Find(y => y.GetType() == moduleType);
+    }
+    
+    public Module[] GetModules(Type moduleType)
+    {
+        return ModuleList.FindAll(y => y.GetType() == moduleType).ToArray();
     }
 }
