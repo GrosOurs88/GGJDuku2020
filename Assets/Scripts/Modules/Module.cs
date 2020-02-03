@@ -11,9 +11,54 @@ public abstract class Module : MonoBehaviour
     
     
     public HealthEnum currentHealth = new HealthEnum(HealthEnum.HealthState.FULL);
-    public AilmentsEnum currentAilment = new AilmentsEnum(AilmentsEnum.Ailments.NONE);
-    
-    
+
+
+    public delegate void StateChangeEvent();
+
+    public event StateChangeEvent EnterFire;
+    public event StateChangeEvent ExitFire;
+    public event StateChangeEvent EnterElec;
+    public event StateChangeEvent ExitElec;
+
+
+    private bool isOnFire;
+    public bool IsOnFire
+    {
+        get => isOnFire;
+        set
+        {
+            if (value != isOnFire)
+            {
+                if (value == true)
+                    EnterFire?.Invoke();
+                else
+                    ExitFire?.Invoke();
+
+                isOnFire = value;
+            }
+        }
+    }
+
+
+    private bool isOnElec;
+    public bool IsOnElec
+    {
+        get => isOnElec;
+        set
+        {
+            if (value != isOnElec)
+            {
+                if (value == true)
+                    EnterElec?.Invoke();
+                else
+                    ExitElec?.Invoke();
+
+                isOnElec = value;
+            }
+        }
+    }
+
+
     // GAMEPLAY VARIABLES
     [SerializeField] private float lifePoints;
     public float LifePoints
@@ -77,12 +122,12 @@ public abstract class Module : MonoBehaviour
         ShipManager.ModulesUpdate += UpdateModule;
         shipManager.RegisterModule(this);
 
-        // AILMENTS STATE MACHINE
-        currentAilment.EnterFIRE += () => fire.SetActive(true);
-        currentAilment.ExitFIRE += () => fire.SetActive(false);
+        // AILMENTS EVENTS
+        EnterFire +=    () => fire.SetActive(true);
+        ExitFire +=     () => fire.SetActive(false);
         
-        currentAilment.EnterELECTRIC += () => elec.SetActive(true);
-        currentAilment.ExitELECTRIC += () => elec.SetActive(false);
+        EnterElec +=    () => elec.SetActive(true);
+        ExitElec +=     () => elec.SetActive(false);
     }
 
     protected virtual void OnDisable()
@@ -130,7 +175,15 @@ public abstract class Module : MonoBehaviour
                 
             }
 
-            currentAilment.Value = target;
+            switch (target)
+            {
+                case AilmentsEnum.Ailments.FIRE:
+                    IsOnFire = true;
+                    break;
+                case AilmentsEnum.Ailments.ELECTRICBUG:
+                    IsOnElec = true;
+                    break;
+            }
         }
     }
 
