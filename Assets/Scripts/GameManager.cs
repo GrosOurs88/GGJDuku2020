@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
     public float oxygenLossSpeed = 1;
     public float temperatureGainSpeed = 1;
     public float shipSpeed = 10;
+    public float shipSpeedSmoothSlow = 0.5f;
+    public float shipSpeedSmoothAcceleration = 0.2f;
+    public float shipRotationSpeed = 10;
+    public float distanceOnPathOrientation = 0.01f;
 
     private float vignetteBase;
     private Vignette vignetteLayer;

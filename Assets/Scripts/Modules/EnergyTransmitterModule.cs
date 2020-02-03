@@ -11,73 +11,186 @@ public class EnergyTransmitterModule : Module
     public int maxEnergy25 = 0;
 
     public EnergyButtons buttons;
+
+    public Image[] energyPoints;
     
-    private List<Module> connectedModules = new List<Module>();
+    [SerializeField] private List<Module> connectedModules = new List<Module>();
     
     
     protected override void UpdateFullLife()
     {
-        if (connectedModules.Count > maxEnergy100)
-        {
-            while (connectedModules.Count > maxEnergy100)
-            {
-                connectedModules[0].PowerOff();
-                connectedModules.RemoveAt(0);
-            }
-        }
+        CheckNumberOfActiveModules(maxEnergy100);
     }
 
     protected override void UpdateDamaged()
     {
-        if (connectedModules.Count > maxEnergy50)
-        {
-            while (connectedModules.Count > maxEnergy50)
-            {
-                connectedModules[0].PowerOff();
-                connectedModules.RemoveAt(0);
-            }
-        }
+        CheckNumberOfActiveModules(maxEnergy50);
     }
 
     protected override void UpdateDead()
     {
-        if (connectedModules.Count > maxEnergy25)
-        {
-            while (connectedModules.Count > maxEnergy25)
-            {
-                connectedModules[0].PowerOff();
-                connectedModules.RemoveAt(0);
-            }
-        }
+        CheckNumberOfActiveModules(maxEnergy25);
     }
 
-    public void EnableModule(int module)
+
+    protected override void Start()
+    {
+        base.Start();
+        UpdateEnabledModulesUI();
+        DisableUnusedButtons();
+    }
+
+
+    public void ToggleModule(int module)
     {
         if (currentHealth.Value != HealthEnum.HealthState.DEAD)
         {
+            Module  moduleScript;
             switch (module)
             {
                 case 0:
-                    shipManager.PowerModule(typeof(EngineModule));
+                    moduleScript = shipManager.GetModule(typeof(EngineModule));
                     break;
                 case 1:
-                    shipManager.PowerModule(typeof(OxygenModule));
+                    moduleScript = shipManager.GetModule(typeof(OxygenModule));
                     break;
                 case 2:
-                    shipManager.PowerModule(typeof(EnergyGeneratorModule));
+                    moduleScript = shipManager.GetModule(typeof(EnergyGeneratorModule));
                     break;
                 case 3:
-                    shipManager.PowerModule(typeof(InfoScreenModule));
+                    moduleScript = shipManager.GetModule(typeof(InfoScreenModule));
                     break;
                 case 4:
-                    shipManager.PowerModule(typeof(LightModule));
+                    moduleScript = shipManager.GetModule(typeof(LightModule));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(module), module, null);
             }
+            
+            if (moduleScript.isPowered)
+            {
+                DisableModule(moduleScript);
+            }
+            else if (CanEnableModule(moduleScript))
+            {
+                EnableModule(moduleScript);
+            }
+        }
+
+        switch (currentHealth.Value)
+        {
+            case HealthEnum.HealthState.FULL:
+                CheckNumberOfActiveModules(maxEnergy100);
+                break;
+            case HealthEnum.HealthState.DAMAGED:
+                CheckNumberOfActiveModules(maxEnergy50);
+                break;
+            case HealthEnum.HealthState.DEAD:
+                CheckNumberOfActiveModules(maxEnergy25);
+                break;
+        }
+        
+        DisableUnusedButtons();
+        UpdateEnabledModulesUI();
+    }
+
+    public void DisableAllModules()
+    {
+        for (var i = connectedModules.Count - 1; i >= 0; i--)
+        {
+            if (connectedModules[i].consumesEnergy)
+                DisableModule(connectedModules[i]);
+        }
+
+        DisableUnusedButtons();
+    }
+    
+
+    private void EnableModule(Module module)
+    {
+        module.PowerOn();
+        connectedModules.Add(module);
+    }
+
+    private void DisableModule(Module module)
+    {
+        module.PowerOff();
+        connectedModules.Remove(module);
+    }
+    
+    private void CheckNumberOfActiveModules(int activesMax)
+    {
+        if (connectedModules.Count <= activesMax) return;
+        
+        while (connectedModules.Count > activesMax)
+        {
+            connectedModules[0].PowerOff();
+            connectedModules.RemoveAt(0);
         }
     }
 
+    private bool CanEnableModule(Module module)
+    {
+        return (module.consumesEnergy && shipManager.EnergyAmount > 0) || !module.consumesEnergy;
+    }
+    
+    private void UpdateEnabledModulesUI()
+    {
+        foreach (var module in connectedModules)
+        {
+            switch (module)
+            {
+                case EnergyGeneratorModule energyGeneratorModule:
+                    buttons.EnergyGenButton.colors = buttons.blockPowered;
+                    break;
+                case EngineModule engineModule:
+                    buttons.EngineButton.colors = buttons.blockPowered;
+                    break;
+                case InfoScreenModule infoScreenModule:
+                    buttons.InfoScreenButton.colors = buttons.blockPowered;
+                    break;
+                case LightModule lightModule:
+                    buttons.LightButton.colors = buttons.blockPowered;
+                    break;
+                case OxygenModule oxygenModule:
+                    buttons.OxygenButton.colors = buttons.blockPowered;
+                    break;
+            }
+        }
+    }
+    
+    
+    private void DisableUnusedButtons()
+    {
+        if (!connectedModules.Exists(x => x.GetType() == typeof(EnergyGeneratorModule)))
+        {
+            buttons.EnergyGenButton.colors = buttons.blockUnpowered;
+        }
+        
+        if (!connectedModules.Exists(x => x.GetType() == typeof(EngineModule)))
+        {
+            buttons.EngineButton.colors = buttons.blockUnpowered;
+        }
+        
+        if (!connectedModules.Exists(x => x.GetType() == typeof(InfoScreenModule)))
+        {
+            buttons.InfoScreenButton.colors = buttons.blockUnpowered;
+        }
+        
+        if (!connectedModules.Exists(x => x.GetType() == typeof(LightModule)))
+        {
+            buttons.LightButton.colors = buttons.blockUnpowered;
+        }
+        
+        if (!connectedModules.Exists(x => x.GetType() == typeof(OxygenModule)))
+        {
+            buttons.OxygenButton.colors = buttons.blockUnpowered;
+        }
+    }
+
+    
+    
+    
 
     [Serializable]
     public struct EnergyButtons
@@ -88,6 +201,7 @@ public class EnergyTransmitterModule : Module
         public Button InfoScreenButton;
         public Button LightButton;
 
-        public Image PowerAvailableImage;
+        public ColorBlock blockPowered;
+        public ColorBlock blockUnpowered;
     }
 }

@@ -50,6 +50,8 @@ MonoBehaviour:
   oxygenAmount: 100
   energyAmount: 0
   temperatureAmount: 0
+  distanceTraveled: 0
+  targetSpeed: 0
   ModuleList: []
 --- !u!114 &118477884
 MonoBehaviour:
@@ -73,4 +75,5 @@ MonoBehaviour:
   shipEnergyRepartitor: {fileID: 0}
   shipGenerator: {fileID: 0}
   shipOxygenGenerator: {fileID: 0}
+  distanceTraveled: {fileID: 0}
   refreshTimer: 1

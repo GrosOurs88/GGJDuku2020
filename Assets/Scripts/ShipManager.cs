@@ -98,9 +98,10 @@ public class ShipManager : MonoBehaviour
             }
         }
     }
-    
-    
 
+    public float distanceTraveled;
+    public float targetSpeed;
+    
     [SerializeField] private List<Module> ModuleList = new List<Module>();
 
 
@@ -119,6 +120,7 @@ public class ShipManager : MonoBehaviour
     {
         tween = path.GetTween();
         tween.timeScale = 0;
+        targetSpeed = 0;
     }
 
 
@@ -127,6 +129,8 @@ public class ShipManager : MonoBehaviour
         LooseOxygen();
         HeatUpdate();
         CheckDamage();
+        MoveShip();
+        RotateShip();
         
         ModulesUpdate?.Invoke(); 
     }
@@ -156,21 +160,44 @@ public class ShipManager : MonoBehaviour
         }
     }
 
-    public void MoveShip(float amount)
+    public void SetTargetSpeed(float amount)
     {
-        //ship.transform.position += new Vector3(0f, 0f, amount * Time.deltaTime);
-        tween.timeScale = amount;
+        targetSpeed = amount;
+    }
+    
+    private void MoveShip()
+    {
+        if (tween.timeScale < targetSpeed) //acceleration
+        {
+            tween.timeScale = Mathf.MoveTowards(tween.timeScale, targetSpeed,
+                gameManager.shipSpeedSmoothAcceleration * Time.deltaTime);
+        }
+        else if (tween.timeScale > targetSpeed) //slow down
+        {
+            tween.timeScale = Mathf.MoveTowards(tween.timeScale, targetSpeed,
+                gameManager.shipSpeedSmoothSlow * Time.deltaTime);
+        }
+        
+        distanceTraveled = tween.fullPosition;
+    }
+
+    private void RotateShip()
+    {
+        var shipTransform = path.transform;
+
+        var aimPoint = tween.PathGetPoint(tween.ElapsedDirectionalPercentage() + gameManager.distanceOnPathOrientation);
+        //aimPoint = aimPoint - transform.position;
+        /*shipTransform.forward = Vector3.MoveTowards(shipTransform.forward, aimPoint - shipTransform.position,
+            tween.timeScale * gameManager.shipRotationSpeed * Time.deltaTime);*/
+        aimPoint = Vector3.MoveTowards(shipTransform.position + shipTransform.forward * Vector3.Distance(shipTransform.position, aimPoint), aimPoint,
+            tween.timeScale * gameManager.shipRotationSpeed * Time.deltaTime);
+        shipTransform.LookAt(aimPoint);
+
     }
 
     private void OutOfEnergy()
     {
-        foreach (var module in ModuleList)
-        {
-            if (module.consumesEnergy)
-            {
-                module.PowerOff();
-            }
-        }
+        ((EnergyTransmitterModule) GetModule(typeof(EnergyTransmitterModule))).DisableAllModules();
     }
     
     
@@ -193,16 +220,6 @@ public class ShipManager : MonoBehaviour
         InitModule(module);
     }
     
-    public void PowerModule(Type moduleType)
-    {
-        var module = GetModule(moduleType);
-        
-        if (module.isPowered)
-            module.PowerOff();
-        else
-            module.PowerOn();
-        
-    }
 
     public Module GetModule(Type moduleType)
     {

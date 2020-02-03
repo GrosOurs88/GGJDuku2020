@@ -46,4 +46,8 @@ MonoBehaviour:
   cameraControl: {fileID: 0}
   oxygenLossSpeed: 1
   temperatureGainSpeed: 1
-  shipSpeed: 10
+  shipSpeed: 20
+  shipSpeedSmoothSlow: 10
+  shipSpeedSmoothAcceleration: 2.5
+  shipRotationSpeed: 7
+  distanceOnPathOrientation: 0.03

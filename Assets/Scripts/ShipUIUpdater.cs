@@ -21,6 +21,7 @@ public class ShipUIUpdater : MonoBehaviour
     public TextMeshPro shipGenerator;
     public TextMeshPro shipOxygenGenerator;
 
+    public TextMeshProUGUI distanceTraveled;
 
     public float refreshTimer = 1;
     private float timer;
@@ -62,5 +63,9 @@ public class ShipUIUpdater : MonoBehaviour
         averageGlassValue /= glasses.Length;
 
         shipGlass.text = averageGlassValue.ToString("F0");
+        
+        
+        // DISTANCE
+        distanceTraveled.text = shipManager.distanceTraveled.ToString("F0");
     }
 }
