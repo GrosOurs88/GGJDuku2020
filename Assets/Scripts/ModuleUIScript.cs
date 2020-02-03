@@ -9,7 +9,8 @@ public class ModuleUIScript : MonoBehaviour
     private string modulePourcentText;
     private TextMeshPro modulePourcentTextMesh;
 
-
+    public float palier1 = 50;
+    public float palier2 = 25;
     private void Start()
     {
         modulePourcentTextMesh = GetComponent<TextMeshPro>();
@@ -26,12 +27,12 @@ public class ModuleUIScript : MonoBehaviour
         modulePourcentText = modulePourcentTextMesh.text;
         float test = float.Parse(modulePourcentText);
 
-        if(test < 25f)
+        if(test < palier2)
         {
             modulePourcentTextMesh.color = Color.red;
         }
 
-        else if (test > 25f && test <= 50f)
+        else if (test > palier2 && test <= palier1)
         {
             modulePourcentTextMesh.color = Color.yellow;
         }

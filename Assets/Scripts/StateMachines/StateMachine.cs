@@ -7,10 +7,6 @@ using UnityEngine;
 public abstract class StateMachine<T> where T : struct, IConvertible
 {
     [SerializeField] protected T currentValue;
-
-    public delegate void EnumEvents(T state);
-    public static event EnumEvents EnterStateEvents; 
-    
     public delegate void StateChangeEvent();
 
     public T Value

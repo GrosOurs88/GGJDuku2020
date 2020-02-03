@@ -41,7 +41,7 @@ public class ShipUIUpdater : MonoBehaviour
         // RESOURCES
         shipHull.text = shipManager.HullPoints.ToString("F0");
         shipOxygen.text = shipManager.OxygenAmount.ToString("F0");
-        shipTemperature.text = shipManager.TemperatureAmount.ToString("F0");
+        shipTemperature.text = shipManager.TemperatureAmount.Remap(100, 0, 30, -60).ToString("F0");
         shipEnergy.text = shipManager.EnergyAmount.ToString("F0");
 
         // MODULES
@@ -66,6 +66,6 @@ public class ShipUIUpdater : MonoBehaviour
         
         
         // DISTANCE
-        distanceTraveled.text = shipManager.distanceTraveled.ToString("F0");
+        distanceTraveled.text = shipManager.distanceTraveled.ToString("F0") + " ly";
     }
 }
