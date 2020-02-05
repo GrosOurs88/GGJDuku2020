@@ -143,18 +143,18 @@ public abstract class Module : MonoBehaviour
 
 
     // FUNCTIONS
-    public virtual void DamageModule(float value, float ailmentMultiplier = 0, AilmentsEnum.Ailments ailment = AilmentsEnum.Ailments.NONE)
+    public virtual bool DamageModule(float value, float ailmentMultiplier = 0, AilmentsEnum.Ailments ailment = AilmentsEnum.Ailments.NONE)
     {
         LifePoints -= value;
         
-        RollAilment(ailmentMultiplier, ailment);
+        return RollAilment(ailmentMultiplier, ailment);
     }
 
-    protected virtual void RollAilment(float ailmentMultiplier = 0, AilmentsEnum.Ailments ailment = AilmentsEnum.Ailments.NONE)
+    protected virtual bool RollAilment(float ailmentMultiplier = 0, AilmentsEnum.Ailments ailment = AilmentsEnum.Ailments.NONE)
     {
         float rand = UnityEngine.Random.Range(0f, 1f);
 
-        if (rand > chanceForAilment + ailmentMultiplier) //gets ailment
+        if (rand < chanceForAilment + ailmentMultiplier || chanceForAilment + ailmentMultiplier >= 1) //gets ailment
         {
             AilmentsEnum.Ailments target;
 
@@ -162,15 +162,19 @@ public abstract class Module : MonoBehaviour
                 target = ailment;
             else
             {
-                int r = UnityEngine.Random.Range(0, 1);
+                int r = UnityEngine.Random.Range(0, 2);
                 
-                if (r == 0)
+                if (r == 0 && !isOnFire)
                 {
                     target = canUseFire ? AilmentsEnum.Ailments.FIRE : AilmentsEnum.Ailments.ELECTRICBUG;
                 }
-                else
+                else if (!isOnElec)
                 {
                     target = canUseElec ? AilmentsEnum.Ailments.ELECTRICBUG : AilmentsEnum.Ailments.FIRE;
+                }
+                else
+                {
+                    target = AilmentsEnum.Ailments.NONE;
                 }
                 
             }
@@ -179,12 +183,19 @@ public abstract class Module : MonoBehaviour
             {
                 case AilmentsEnum.Ailments.FIRE:
                     IsOnFire = true;
+                    return true;
                     break;
                 case AilmentsEnum.Ailments.ELECTRICBUG:
                     IsOnElec = true;
+                    return true;
+                    break;
+                case AilmentsEnum.Ailments.NONE:
+                    return false;
                     break;
             }
         }
+
+        return false;
     }
 
     private void UpdateModule()
