@@ -19,6 +19,11 @@ public class GameManager : MonoBehaviour
     public float shipRotationSpeed = 10;
     public float distanceOnPathOrientation = 0.01f;
 
+    public Tool.Tools currentTool = Tool.Tools.None;
+    public float toolTapeValue = 2;
+    public float toolExtinguisherValue = 1;
+    public float toolElectricFixerValue = 1;
+
     private float vignetteBase;
     private Vignette vignetteLayer;
     private void Awake()

@@ -44,11 +44,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseTimeBetweenRolls: 15
-  additionalRandom: 5
+  additionalRandomTime: 5
   disfunctionChance: 0.2
   disfunctionDamage: 0
-  disfunctionMinDamage: 0
-  disfunctionMaxDamage: 0
+  disfunctionMinDamage: 2
+  disfunctionMaxDamage: 6
   targetModules:
   - {fileID: 0}
   - {fileID: 0}

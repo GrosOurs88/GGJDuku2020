@@ -7,7 +7,7 @@ using Random = System.Random;
 public class RandomDisfunctionsManager : MonoBehaviour
 {
     public float baseTimeBetweenRolls = 20;
-    public float additionalRandom;
+    public float additionalRandomTime;
 
     [Range(0, 1)] public float disfunctionChance = 0.2f;
 
@@ -43,7 +43,7 @@ public class RandomDisfunctionsManager : MonoBehaviour
 
     private float RollNewTimer()
     {
-        return baseTimeBetweenRolls + UnityEngine.Random.Range(-additionalRandom, additionalRandom);
+        return baseTimeBetweenRolls + UnityEngine.Random.Range(-additionalRandomTime, additionalRandomTime);
     }
 
     private void RollDisfunction()

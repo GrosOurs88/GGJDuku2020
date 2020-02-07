@@ -111,6 +111,15 @@ public abstract class Module : MonoBehaviour
 
     public bool canUseFire = true;
     public bool canUseElec;
+    public float fireDifficulty = 3;
+    public float fireDifficultyRandom = 1;
+    public float elecDifficulty = 5;
+    public float elecDifficultyRandom = 2;
+
+    private float fireHealth;
+    private float elecHealth;
+    private Coroutine fireCoroutine;
+    private Coroutine elecCoroutine;
     
     public GameObject fire;
     public GameObject elec;
@@ -124,9 +133,11 @@ public abstract class Module : MonoBehaviour
 
         // AILMENTS EVENTS
         EnterFire +=    () => fire.SetActive(true);
+        EnterFire +=    () => fireHealth = fireDifficulty + UnityEngine.Random.Range(0f, fireDifficultyRandom);
         ExitFire +=     () => fire.SetActive(false);
         
         EnterElec +=    () => elec.SetActive(true);
+        EnterElec +=    () => elecHealth = elecDifficulty + UnityEngine.Random.Range(0f, elecDifficultyRandom);
         ExitElec +=     () => elec.SetActive(false);
     }
 
@@ -211,14 +222,22 @@ public abstract class Module : MonoBehaviour
             UpdateUnpowered();
             return;
         }// Non branché
-        
-        
-        // MODULE UPDATE
-        if (LifePoints >= 50)
+
+
+
+        int nbOfAilments = 0;
+
+        if (IsOnFire)
+            nbOfAilments++;
+        if (isOnElec)
+            nbOfAilments++;
+
+            // MODULE UPDATE
+        if (LifePoints >= 50 && nbOfAilments == 0)
         {
             UpdateFullLife();
         }
-        else if (LifePoints >= 25)
+        else if ((LifePoints >= 25 && nbOfAilments == 0) || (LifePoints >= 50 && nbOfAilments == 1))
         {
             UpdateDamaged();
         }
@@ -253,4 +272,53 @@ public abstract class Module : MonoBehaviour
         
     }
 
+    public void OnClick() //try fix module
+    {
+        switch (gameManager.currentTool)
+        {
+            case Tool.Tools.Tape:
+                LifePoints += gameManager.toolTapeValue;
+                break;
+            case Tool.Tools.FireExtinguisher:
+                if (fireCoroutine == null)
+                    fireCoroutine = StartCoroutine(FireExtinguish());
+                break;
+            case Tool.Tools.ElectricFixer:
+                if (elecCoroutine == null)
+                    elecCoroutine = StartCoroutine(ElecFix());
+                break;
+        }
+    }
+
+    private IEnumerator FireExtinguish()
+    {
+        while (IsOnFire && Input.GetMouseButton(0))
+        {
+            fireHealth -= gameManager.toolExtinguisherValue * Time.deltaTime;
+
+            if (fireHealth <= 0)
+            {
+                IsOnFire = false;
+                break;
+            }
+
+            yield return null;
+        }
+    }
+
+    private IEnumerator ElecFix()
+    {
+        while (IsOnElec && Input.GetMouseButton(0))
+        {
+            elecHealth -= gameManager.toolElectricFixerValue * Time.deltaTime;
+
+            if (elecHealth <= 0)
+            {
+                IsOnElec = false;
+                break;
+            }
+
+            yield return null;
+        }
+    }
 }
