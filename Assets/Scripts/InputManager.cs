@@ -18,6 +18,11 @@ public class InputManager : MonoBehaviour
         camera = Camera.main;
     }
 
+    private void Update()
+    {
+        CheckInput();
+    }
+
     private void CheckInput()
     {
         if (Input.GetMouseButtonDown(0))
@@ -28,7 +33,7 @@ public class InputManager : MonoBehaviour
 
             foreach (var raycastHit in hit)
             {
-                raycastHit.collider.BroadcastMessage("OnClick");
+                raycastHit.collider.SendMessageUpwards("OnClick");
             }
         }
     }

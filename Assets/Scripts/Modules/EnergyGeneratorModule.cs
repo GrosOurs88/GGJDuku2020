@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,27 +9,28 @@ public class EnergyGeneratorModule : Module
     public float energy50 = 2;
     public float energy25 = 0;
     
-    protected override void UpdateFullLife()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            shipManager.EnergyAmount += energy100;
-        }
-    }
 
-    protected override void UpdateDamaged()
+    public override void OnClick()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            shipManager.EnergyAmount += energy50;
-        }
-    }
+        base.OnClick();
 
-    protected override void UpdateDead()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (requireEnergy && !isPowered) return;
+
+        float energyIncrease = 0;
+
+        switch (currentHealth.Value)
         {
-            shipManager.EnergyAmount += energy25;
+            case HealthEnum.HealthState.FULL:
+                energyIncrease = energy100;
+                break;
+            case HealthEnum.HealthState.DAMAGED:
+                energyIncrease = energy50;
+                break;
+            case HealthEnum.HealthState.DEAD:
+                energyIncrease = energy25;
+                break;
         }
+
+        shipManager.EnergyAmount += energyIncrease;
     }
 }

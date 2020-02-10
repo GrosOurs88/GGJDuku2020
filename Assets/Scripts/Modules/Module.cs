@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using Random = System.Random;
 
 public abstract class Module : MonoBehaviour
@@ -35,6 +36,8 @@ public abstract class Module : MonoBehaviour
                     ExitFire?.Invoke();
 
                 isOnFire = value;
+
+                UpdateHealthState();
             }
         }
     }
@@ -54,6 +57,8 @@ public abstract class Module : MonoBehaviour
                     ExitElec?.Invoke();
 
                 isOnElec = value;
+
+                UpdateHealthState();
             }
         }
     }
@@ -75,21 +80,8 @@ public abstract class Module : MonoBehaviour
             {
                 lifePoints = 100;
             }
-
-            if (lifePoints >= 50)
-            {
-                currentHealth.Value = HealthEnum.HealthState.FULL;
-            }
-            else if (lifePoints >= 25)
-            {
-                currentHealth.Value = HealthEnum.HealthState.DAMAGED;
-            }
-            else
-            {
-                currentHealth.Value = HealthEnum.HealthState.DEAD;
-            }
             
-            
+            UpdateHealthState();
         }
     }
     
@@ -175,11 +167,11 @@ public abstract class Module : MonoBehaviour
             {
                 int r = UnityEngine.Random.Range(0, 2);
                 
-                if (r == 0 && !isOnFire)
+                if (r == 0 && !IsOnFire)
                 {
                     target = canUseFire ? AilmentsEnum.Ailments.FIRE : AilmentsEnum.Ailments.ELECTRICBUG;
                 }
-                else if (!isOnElec)
+                else if (!IsOnElec)
                 {
                     target = canUseElec ? AilmentsEnum.Ailments.ELECTRICBUG : AilmentsEnum.Ailments.FIRE;
                 }
@@ -223,21 +215,16 @@ public abstract class Module : MonoBehaviour
             return;
         }// Non branché
 
+        
 
 
-        int nbOfAilments = 0;
+        // MODULE UPDATE
 
-        if (IsOnFire)
-            nbOfAilments++;
-        if (isOnElec)
-            nbOfAilments++;
-
-            // MODULE UPDATE
-        if (LifePoints >= 50 && nbOfAilments == 0)
+        if (currentHealth.Value == HealthEnum.HealthState.FULL)
         {
             UpdateFullLife();
         }
-        else if ((LifePoints >= 25 && nbOfAilments == 0) || (LifePoints >= 50 && nbOfAilments == 1))
+        else if (currentHealth.Value == HealthEnum.HealthState.DAMAGED)
         {
             UpdateDamaged();
         }
@@ -261,18 +248,39 @@ public abstract class Module : MonoBehaviour
     {
         isPowered = false;
     }
-    
 
-    protected abstract void UpdateFullLife();
-    protected abstract void UpdateDamaged();
-    protected abstract void UpdateDead();
-
-    protected virtual void UpdateUnpowered()
+    private void UpdateHealthState()
     {
-        
+        int nbOfAilments = 0;
+
+        if (IsOnFire)
+            nbOfAilments++;
+        if (IsOnElec)
+            nbOfAilments++;
+
+        if (lifePoints >= 50 && nbOfAilments == 0)
+        {
+            currentHealth.Value = HealthEnum.HealthState.FULL;
+        }
+        else if ((LifePoints >= 25 && nbOfAilments == 0) || (LifePoints >= 50 && nbOfAilments == 1))
+        {
+            currentHealth.Value = HealthEnum.HealthState.DAMAGED;
+        }
+        else
+        {
+            currentHealth.Value = HealthEnum.HealthState.DEAD;
+        }
     }
 
-    public void OnClick() //try fix module
+
+    protected virtual void UpdateFullLife() {}
+    protected virtual void UpdateDamaged() {}
+    protected virtual void UpdateDead() {}
+
+    protected virtual void UpdateUnpowered() {}
+
+
+    public virtual void OnClick() //try fix module
     {
         switch (gameManager.currentTool)
         {

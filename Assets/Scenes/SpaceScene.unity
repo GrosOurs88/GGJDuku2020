@@ -164,6 +164,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceef5365ad378844ca80dec65f60dfef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &81441311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1206594443558004, guid: 25e8aee7829808347b0d5ca4566a4e3c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1065284385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &81441312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81441311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 143743d970d8be14db790bdc2b8610f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tool: 0
 --- !u!114 &84700724 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3843661575563329033, guid: 1dd43b60c9e36194d8d0424519d6a216,
@@ -758,6 +777,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f23dd792275d48a40b2ddb16f9db9b38, type: 3}
+--- !u!1 &598427671 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 58737df6d40bb7442ae753b50a911075,
+    type: 3}
+  m_PrefabInstance: {fileID: 2047266229}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &598427672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598427671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 143743d970d8be14db790bdc2b8610f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tool: 1
 --- !u!1 &600767633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,6 +1693,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823720082}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &843945214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1008849628155272, guid: f23dd792275d48a40b2ddb16f9db9b38,
+    type: 3}
+  m_PrefabInstance: {fileID: 559975752}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &843945215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843945214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 143743d970d8be14db790bdc2b8610f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tool: 2
 --- !u!1001 &870631614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3832,16 +3889,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: OxygenPump
       objectReference: {fileID: 0}
-    - target: {fileID: 3034520026818282346, guid: 01bbb7402a414c14f8a864af494f8d4e,
-        type: 3}
-      propertyPath: oxygenRefill100
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3034520026818282346, guid: 01bbb7402a414c14f8a864af494f8d4e,
-        type: 3}
-      propertyPath: consumesEnergy
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3034520026818282347, guid: 01bbb7402a414c14f8a864af494f8d4e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3896,6 +3943,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293725677497717418, guid: 01bbb7402a414c14f8a864af494f8d4e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01bbb7402a414c14f8a864af494f8d4e, type: 3}
@@ -4253,6 +4305,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.z
       value: -0.0035121508
+      objectReference: {fileID: 0}
+    - target: {fileID: 2613950301050764580, guid: 84291fa2418c2aa40a8baffaaf8b10c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3008785189239509336, guid: 84291fa2418c2aa40a8baffaaf8b10c4,
         type: 3}

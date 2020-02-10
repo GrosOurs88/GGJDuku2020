@@ -48,8 +48,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth:
     currentValue: 0
-  currentAilment:
-    currentValue: 0
   lifePoints: 0
   isPowered: 0
   damageAmount: 1
@@ -60,9 +58,13 @@ MonoBehaviour:
   chanceForAilment: 0.2
   canUseFire: 1
   canUseElec: 1
+  fireDifficulty: 3
+  fireDifficultyRandom: 1
+  elecDifficulty: 5
+  elecDifficultyRandom: 2
   fire: {fileID: 6148561339162138123}
   elec: {fileID: 4378008284084093707}
-  oxygenRefill100: 1
+  oxygenRefill100: 2
   oxygenRefill50: 0.5
   oxygenRefill25: 0
 --- !u!1 &4378008284084093707
@@ -141,8 +143,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.08, y: 0.16, z: 0.2}
-  m_Center: {x: 0, y: -0.033133905, z: -0.093268044}
+  m_Size: {x: 0.008694181, y: 0.0039108847, z: 0.007044884}
+  m_Center: {x: 0.0034941449, y: 0.00038159636, z: 0.0012413145}
 --- !u!1001 &1796009173238803466
 PrefabInstance:
   m_ObjectHideFlags: 0
