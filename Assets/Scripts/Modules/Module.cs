@@ -285,7 +285,7 @@ public abstract class Module : MonoBehaviour
         switch (gameManager.currentTool)
         {
             case Tool.Tools.Tape:
-                LifePoints += gameManager.toolTapeValue;
+                UseTape();
                 break;
             case Tool.Tools.FireExtinguisher:
                 if (fireCoroutine == null)
@@ -302,7 +302,10 @@ public abstract class Module : MonoBehaviour
     {
         while (IsOnFire && Input.GetMouseButton(0))
         {
-            fireHealth -= gameManager.toolExtinguisherValue * Time.deltaTime;
+            if (gameManager.CurrentToolDurability <= 0) break; // no durability
+
+            gameManager.CurrentToolDurability -= gameManager.toolFireExtUse * Time.deltaTime;
+            fireHealth -= gameManager.toolExtinguisherRepairValue * Time.deltaTime;
 
             if (fireHealth <= 0)
             {
@@ -318,7 +321,10 @@ public abstract class Module : MonoBehaviour
     {
         while (IsOnElec && Input.GetMouseButton(0))
         {
-            elecHealth -= gameManager.toolElectricFixerValue * Time.deltaTime;
+            if (gameManager.CurrentToolDurability <= 0) break; // no durability
+
+            gameManager.CurrentToolDurability -= gameManager.toolElectricFixerUse * Time.deltaTime;
+            elecHealth -= gameManager.toolElectricFixerRepairValue * Time.deltaTime;
 
             if (elecHealth <= 0)
             {
@@ -328,5 +334,13 @@ public abstract class Module : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    private void UseTape()
+    {
+        if (gameManager.CurrentToolDurability <= 0) return;
+
+        gameManager.CurrentToolDurability -= gameManager.toolTapeUse;
+        LifePoints += gameManager.toolTapeRepairValue;
     }
 }

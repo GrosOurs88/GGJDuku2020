@@ -20,12 +20,38 @@ public class GameManager : MonoBehaviour
     public float distanceOnPathOrientation = 0.01f;
 
     public Tool.Tools currentTool = Tool.Tools.None;
-    public float toolTapeValue = 2;
-    public float toolExtinguisherValue = 1;
-    public float toolElectricFixerValue = 1;
+    public float toolTapeRepairValue = 2;
+    public float toolExtinguisherRepairValue = 1;
+    public float toolElectricFixerRepairValue = 1;
+
+    public float toolTapeUse = 5;
+    public float toolFireExtUse = 5;
+    public float toolElectricFixerUse = 5;
 
     private float vignetteBase;
     private Vignette vignetteLayer;
+
+    public float CurrentToolDurability
+    {
+        get => currentToolDurability;
+        set
+        {
+            currentToolDurability = value;
+
+            if (currentToolDurability > 100)
+            {
+                currentToolDurability = 100;
+            }
+
+            if (currentToolDurability < 0)
+            {
+                currentToolDurability = 0;
+            }
+
+        }
+    }
+    private float currentToolDurability;
+
     private void Awake()
     {
         instance = this;

@@ -21,5 +21,6 @@ public class Tool : MonoBehaviour
     public void OnClick()
     {
         gameManager.currentTool = tool;
+        gameManager.CurrentToolDurability = 100;
     }
 }

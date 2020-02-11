@@ -6,20 +6,6 @@ using UnityEngine;
 public class InfoScreenModule : Module
 {
     public GameObject[] infoScreens;
-    protected override void UpdateFullLife()
-    {
-        //throw new System.NotImplementedException();
-    }
-
-    protected override void UpdateDamaged()
-    {
-        //throw new System.NotImplementedException();
-    }
-
-    protected override void UpdateDead()
-    {
-        //throw new System.NotImplementedException();
-    }
 
     protected override void Start()
     {
