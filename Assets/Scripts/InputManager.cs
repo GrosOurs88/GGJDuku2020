@@ -21,6 +21,7 @@ public class InputManager : MonoBehaviour
     private void Update()
     {
         CheckInput();
+        CheckMouseOver();
     }
 
     private void CheckInput()
@@ -37,5 +38,25 @@ public class InputManager : MonoBehaviour
             }
         }
     }
-    
+
+    public void CheckMouseOver()
+    {
+        RaycastHit hit;
+        Ray ray = new Ray(camera.transform.position, camera.transform.forward);
+
+        int layerMask = LayerMask.GetMask("Clickable");
+
+        MonoBehaviour targetHit = null;
+        if (Physics.Raycast(ray, out hit, inputDistance, layerMask))
+        {
+             targetHit = hit.collider.GetComponentInParent<Module>(); // check hit module
+
+             if (targetHit == null)
+             {
+                 targetHit = hit.collider.GetComponentInParent<Tool>(); // check hit tool
+             }
+        }
+        HUDScript.instance.MousOverModule(targetHit);
+    }
+
 }

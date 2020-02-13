@@ -343,4 +343,5 @@ public abstract class Module : MonoBehaviour
         gameManager.CurrentToolDurability -= gameManager.toolTapeUse;
         LifePoints += gameManager.toolTapeRepairValue;
     }
+
 }

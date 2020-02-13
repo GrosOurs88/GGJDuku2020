@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5550244259616267060}
   - component: {fileID: 7680142068139044084}
   - component: {fileID: 7918401958328249235}
-  - component: {fileID: 7672057044337921804}
-  m_Layer: 0
+  - component: {fileID: 4679453946560246238}
+  m_Layer: 9
   m_Name: GlassWithLightDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,8 +80,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &7672057044337921804
-MeshCollider:
+--- !u!65 &4679453946560246238
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -90,10 +90,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 10.000001, y: 2.2204463e-16, z: 10.000001}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1585306740535792304
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,8 +104,8 @@ GameObject:
   - component: {fileID: 3272513169850010401}
   - component: {fileID: 2595544290158088549}
   - component: {fileID: 5356138843485024782}
-  - component: {fileID: 6944116848767984044}
-  m_Layer: 0
+  - component: {fileID: 8305327894309229193}
+  m_Layer: 9
   m_Name: GlassWithHeavyDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,8 +173,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &6944116848767984044
-MeshCollider:
+--- !u!65 &8305327894309229193
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -184,10 +183,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 10.000001, y: 2.2204463e-16, z: 10.000001}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6358436408247403484
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,8 +197,8 @@ GameObject:
   - component: {fileID: 3680827665804799530}
   - component: {fileID: 3355284081202666165}
   - component: {fileID: 5832462341357120851}
-  - component: {fileID: 3079274789373583819}
-  m_Layer: 0
+  - component: {fileID: 7104533924939910218}
+  m_Layer: 9
   m_Name: GlassWithoutDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,8 +266,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &3079274789373583819
-MeshCollider:
+--- !u!65 &7104533924939910218
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -278,10 +276,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 10.000001, y: 2.2204463e-16, z: 10.000001}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8577834444699443095
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,8 +327,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth:
     currentValue: 0
-  currentAilment:
-    currentValue: 0
   lifePoints: 0
   isPowered: 0
   damageAmount: 1
@@ -342,6 +337,10 @@ MonoBehaviour:
   chanceForAilment: 0.2
   canUseFire: 1
   canUseElec: 0
+  fireDifficulty: 3
+  fireDifficultyRandom: 1
+  elecDifficulty: 5
+  elecDifficultyRandom: 2
   fire: {fileID: 0}
   elec: {fileID: 0}
   oxygenLoss50: 0.3
