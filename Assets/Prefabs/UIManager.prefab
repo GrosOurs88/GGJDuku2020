@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8330770226628138648}
   - component: {fileID: 8330770226628138649}
+  - component: {fileID: 388548721}
+  - component: {fileID: 8543463043466880236}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -24,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8330770226628138650}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -464.27393, y: 305.0346, z: -2141.3215}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -43,3 +45,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b52e80bf4bdf64884baa136858ac46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &388548721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8330770226628138650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a623e15ae50d24aa54d468a6b4f3dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tape: {fileID: 21300000, guid: da1fa3b6e88152a439778f06d3458d68, type: 3}
+  fireExtinguisher: {fileID: 21300000, guid: fa6afe29924a96844a6b8bbf2abba51a, type: 3}
+  multiTool: {fileID: 21300000, guid: 18773762509d874448e1900c99b20541, type: 3}
+  toolDurabilityText: {fileID: 0}
+  toolImage: {fileID: 0}
+  moduleTargetText: {fileID: 0}
+--- !u!114 &8543463043466880236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8330770226628138650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 874cf65bb21afc249b0c4393094ca9d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipHull: {fileID: 0}
+  shipOxygen: {fileID: 0}
+  shipTemperature: {fileID: 0}
+  shipEnergy: {fileID: 0}
+  shipGlass: {fileID: 0}
+  shipEngine: {fileID: 0}
+  shipLights: {fileID: 0}
+  shipEnergyRepartitor: {fileID: 0}
+  shipGenerator: {fileID: 0}
+  shipOxygenGenerator: {fileID: 0}
+  distanceTraveled: {fileID: 0}
+  refreshTimer: 1

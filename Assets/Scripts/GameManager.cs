@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     public float toolFireExtUse = 5;
     public float toolElectricFixerUse = 5;
 
+    public float fireDamageOverTime = 1;
+
     private float vignetteBase;
     private Vignette vignetteLayer;
 

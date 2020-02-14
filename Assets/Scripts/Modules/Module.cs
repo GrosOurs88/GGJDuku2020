@@ -204,7 +204,10 @@ public abstract class Module : MonoBehaviour
     private void UpdateModule()
     {
         // DAMAGE SHIP
-        if (LifePoints <= 0) 
+        if (IsOnFire)// Fire Damage
+            LifePoints -= gameManager.fireDamageOverTime * Time.deltaTime;
+
+        if (LifePoints <= 0) // Damage ship hull
             shipManager.HullPoints -= damageAmount * Time.deltaTime;
 
         
@@ -315,6 +318,8 @@ public abstract class Module : MonoBehaviour
 
             yield return null;
         }
+
+        fireCoroutine = null;
     }
 
     private IEnumerator ElecFix()
@@ -334,6 +339,8 @@ public abstract class Module : MonoBehaviour
 
             yield return null;
         }
+
+        elecCoroutine = null;
     }
 
     private void UseTape()

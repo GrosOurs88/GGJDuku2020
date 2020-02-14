@@ -112,7 +112,7 @@ public class HUDScript : MonoBehaviour
             }
         }
         
-
-        moduleTargetText.text = changeText;
+        if (moduleTargetText.text != changeText)
+            moduleTargetText.text = changeText;
     }
 }

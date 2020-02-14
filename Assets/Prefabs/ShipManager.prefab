@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2003857126300013944}
   - component: {fileID: 4150860550553188260}
-  - component: {fileID: 118477884}
   m_Layer: 0
   m_Name: ShipManager
   m_TagString: Untagged
@@ -53,27 +52,3 @@ MonoBehaviour:
   distanceTraveled: 0
   targetSpeed: 0
   ModuleList: []
---- !u!114 &118477884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003857126300013959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 874cf65bb21afc249b0c4393094ca9d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipHull: {fileID: 0}
-  shipOxygen: {fileID: 0}
-  shipTemperature: {fileID: 0}
-  shipEnergy: {fileID: 0}
-  shipGlass: {fileID: 0}
-  shipEngine: {fileID: 0}
-  shipLights: {fileID: 0}
-  shipEnergyRepartitor: {fileID: 0}
-  shipGenerator: {fileID: 0}
-  shipOxygenGenerator: {fileID: 0}
-  distanceTraveled: {fileID: 0}
-  refreshTimer: 1
