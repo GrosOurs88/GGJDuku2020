@@ -616,30 +616,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &388548720 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8330770226628138650, guid: 00bebfccb09a6e84482bda4689da809b,
-    type: 3}
-  m_PrefabInstance: {fileID: 8330770226390989515}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &388548721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 388548720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a623e15ae50d24aa54d468a6b4f3dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tape: {fileID: 21300000, guid: da1fa3b6e88152a439778f06d3458d68, type: 3}
-  fireExtinguisher: {fileID: 21300000, guid: fa6afe29924a96844a6b8bbf2abba51a, type: 3}
-  multiTool: {fileID: 21300000, guid: 18773762509d874448e1900c99b20541, type: 3}
-  toolDurabilityText: {fileID: 700196763}
-  toolImage: {fileID: 1383361730}
-  moduleTargetText: {fileID: 1700691271}
 --- !u!1 &424616235 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1975959190090480, guid: eca000ab44c908d4dab395f654753038,
@@ -4347,6 +4323,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1424679603}
     m_Modifications:
+    - target: {fileID: 1934900860476431018, guid: edc213c9d44ef4f43a17fbb72a76737c,
+        type: 3}
+      propertyPath: inputDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1934900860476431019, guid: edc213c9d44ef4f43a17fbb72a76737c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4416,50 +4397,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1424679603}
     m_Modifications:
-    - target: {fileID: 118477884, guid: c57b21d804dfa4a44b7a20f78e079f87, type: 3}
-      propertyPath: shipHull
-      value: 
-      objectReference: {fileID: 325068473}
-    - target: {fileID: 118477884, guid: c57b21d804dfa4a44b7a20f78e079f87, type: 3}
-      propertyPath: shipOxygen
-      value: 
-      objectReference: {fileID: 24530909}
-    - target: {fileID: 118477884, guid: c57b21d804dfa4a44b7a20f78e079f87, type: 3}
-      propertyPath: shipTemperature
-      value: 
-      objectReference: {fileID: 326033671}
-    - target: {fileID: 118477884, guid: c57b21d804dfa4a44b7a20f78e079f87, type: 3}
-      propertyPath: shipEnergy
-      value: 
-      objectReference: {fileID: 1044076335}
-    - target: {fileID: 118477884, guid: c57b21d804dfa4a44b7a20f78e079f87, type: 3}
-      propertyPath: shipGlass
-      value: 
-      objectReference: {fileID: 1035295847}
-    - target: {fileID: 118477884, guid: c57b21d804dfa4a44b7a20f78e079f87, type: 3}
-      propertyPath: shipEngine
-      value: 
-      objectReference: {fileID: 743163042}
-    - target: {fileID: 118477884, guid: c57b21d804dfa4a44b7a20f78e079f87, type: 3}
-      propertyPath: shipLights
-      value: 
-      objectReference: {fileID: 669503921}
-    - target: {fileID: 118477884, guid: c57b21d804dfa4a44b7a20f78e079f87, type: 3}
-      propertyPath: shipEnergyRepartitor
-      value: 
-      objectReference: {fileID: 1994114899}
-    - target: {fileID: 118477884, guid: c57b21d804dfa4a44b7a20f78e079f87, type: 3}
-      propertyPath: shipGenerator
-      value: 
-      objectReference: {fileID: 919232598}
-    - target: {fileID: 118477884, guid: c57b21d804dfa4a44b7a20f78e079f87, type: 3}
-      propertyPath: shipOxygenGenerator
-      value: 
-      objectReference: {fileID: 221579122}
-    - target: {fileID: 118477884, guid: c57b21d804dfa4a44b7a20f78e079f87, type: 3}
-      propertyPath: distanceTraveled
-      value: 
-      objectReference: {fileID: 84700724}
     - target: {fileID: 2003857126300013944, guid: c57b21d804dfa4a44b7a20f78e079f87,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4554,6 +4491,11 @@ PrefabInstance:
       propertyPath: targetModules.Array.data[2]
       value: 
       objectReference: {fileID: 1477701830}
+    - target: {fileID: 2624737575363626649, guid: 76275e6659abaad4fb08619d5e1ec1f1,
+        type: 3}
+      propertyPath: disfunctionDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2624737575363626654, guid: 76275e6659abaad4fb08619d5e1ec1f1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5554,6 +5496,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1424679603}
     m_Modifications:
+    - target: {fileID: 388548721, guid: 00bebfccb09a6e84482bda4689da809b, type: 3}
+      propertyPath: toolDurabilityText
+      value: 
+      objectReference: {fileID: 700196763}
+    - target: {fileID: 388548721, guid: 00bebfccb09a6e84482bda4689da809b, type: 3}
+      propertyPath: toolImage
+      value: 
+      objectReference: {fileID: 1383361730}
+    - target: {fileID: 388548721, guid: 00bebfccb09a6e84482bda4689da809b, type: 3}
+      propertyPath: moduleTargetText
+      value: 
+      objectReference: {fileID: 1700691271}
     - target: {fileID: 8330770226628138648, guid: 00bebfccb09a6e84482bda4689da809b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5614,6 +5568,61 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8543463043466880236, guid: 00bebfccb09a6e84482bda4689da809b,
+        type: 3}
+      propertyPath: shipHull
+      value: 
+      objectReference: {fileID: 325068473}
+    - target: {fileID: 8543463043466880236, guid: 00bebfccb09a6e84482bda4689da809b,
+        type: 3}
+      propertyPath: shipOxygen
+      value: 
+      objectReference: {fileID: 24530909}
+    - target: {fileID: 8543463043466880236, guid: 00bebfccb09a6e84482bda4689da809b,
+        type: 3}
+      propertyPath: shipTemperature
+      value: 
+      objectReference: {fileID: 326033671}
+    - target: {fileID: 8543463043466880236, guid: 00bebfccb09a6e84482bda4689da809b,
+        type: 3}
+      propertyPath: shipEnergy
+      value: 
+      objectReference: {fileID: 1044076335}
+    - target: {fileID: 8543463043466880236, guid: 00bebfccb09a6e84482bda4689da809b,
+        type: 3}
+      propertyPath: shipGlass
+      value: 
+      objectReference: {fileID: 1035295847}
+    - target: {fileID: 8543463043466880236, guid: 00bebfccb09a6e84482bda4689da809b,
+        type: 3}
+      propertyPath: shipEngine
+      value: 
+      objectReference: {fileID: 743163042}
+    - target: {fileID: 8543463043466880236, guid: 00bebfccb09a6e84482bda4689da809b,
+        type: 3}
+      propertyPath: shipLights
+      value: 
+      objectReference: {fileID: 669503921}
+    - target: {fileID: 8543463043466880236, guid: 00bebfccb09a6e84482bda4689da809b,
+        type: 3}
+      propertyPath: shipEnergyRepartitor
+      value: 
+      objectReference: {fileID: 1994114899}
+    - target: {fileID: 8543463043466880236, guid: 00bebfccb09a6e84482bda4689da809b,
+        type: 3}
+      propertyPath: shipGenerator
+      value: 
+      objectReference: {fileID: 919232598}
+    - target: {fileID: 8543463043466880236, guid: 00bebfccb09a6e84482bda4689da809b,
+        type: 3}
+      propertyPath: shipOxygenGenerator
+      value: 
+      objectReference: {fileID: 221579122}
+    - target: {fileID: 8543463043466880236, guid: 00bebfccb09a6e84482bda4689da809b,
+        type: 3}
+      propertyPath: distanceTraveled
+      value: 
+      objectReference: {fileID: 84700724}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00bebfccb09a6e84482bda4689da809b, type: 3}
 --- !u!1001 &8634798239385468792
